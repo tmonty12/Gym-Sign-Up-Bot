@@ -32,7 +32,7 @@ def scheduler(u, pw, floor, t, st):
     action = new_task.Actions.Create(TASK_ACTION_EXEC)
     action.ID = 'DO NOTHING'
     action.Path = "C:\\Users\\Tjmon\\anaconda3\\python.exe" # path of python interpreter
-    action.Arguments = "C:\\Users\\Tjmon\\OneDrive\\Desktop\\Gym-Sign-Up-Bot-Project\\main.py {} {} {} {}".format(u, pw, floor, t) # args for python interpreter - (path of script)
+    action.Arguments = "C:\\Users\\Tjmon\\OneDrive\\Desktop\\Gym-Sign-Up-Bot-Project\\main.py {} {} {} {}".format(u, pw, floor, t) # args for python interpreter
 
     new_task.RegistrationInfo.Description = "Gym sign up"
     new_task.Settings.Enabled = True
@@ -44,7 +44,7 @@ def scheduler(u, pw, floor, t, st):
     TASK_CREATE_OR_UPDATE = 6
     TASK_LOGON_NONE = 0
     root_folder.RegisterTaskDefinition(
-        task_name,  # Task name
+        task_name,
         new_task,
         TASK_CREATE_OR_UPDATE,
         '',  # No user
