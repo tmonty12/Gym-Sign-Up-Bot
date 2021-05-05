@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import argparse
-from settings import DRIVER_PATH, BASEMENT_URL, FIRST_FLOOR_URL, SECOND_FLOOR_URL
+from settings import DRIVER_PATH, BASEMENT_URL, FIRST_FLOOR_URL, SECOND_FLOOR_URL, ERNIE_URL
 
 
 def get_driver_path():
@@ -30,18 +30,24 @@ def get_floor_url(floor):
             return FIRST_FLOOR_URL
         else:
             raise Exception("You need to set the first floor url in the FIRST_FLOOR_URL environment variable.")
+    elif floor == 'ernie':
+        if(ERNIE_URL):
+            return ERNIE_URL
+        else:
+            raise Exception("You need to set the first floor url in the ERNIE_URL environment variable.")
     else:
         raise Exception("{} is not a viable floor option.".format(floor))
 
-# Headless mode
-# options = webdriver.ChromeOptions()
-# options.add_argument('headless')
+
 
 def main(u, pw, floor, gym_time):
     t = datetime.datetime.now()
     print('[STARTING] Signing up for {} gym slot on {} at {}'.format(gym_time, t.strftime('%m:%d'), t.strftime('%H:%M')))
 
-    driver = webdriver.Chrome(get_driver_path()) #add in options=options as argument for headless
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless') # comment out to toggle headless mode
+
+    driver = webdriver.Chrome(get_driver_path(), options=options)
     driver.get(get_floor_url(floor))
     
     login(u, pw, driver)

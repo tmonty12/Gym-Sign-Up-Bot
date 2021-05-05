@@ -39,7 +39,6 @@ def scheduler(u, pw, floor, t, st):
     new_task.Settings.StopIfGoingOnBatteries = False
     new_task.Settings.DisallowStartIfOnBatteries = False
     new_task.Settings.WakeToRun = True
-    # new_task.Settings.DeleteExpiredTaskAfter = "PT5M" 
 
     TASK_CREATE_OR_UPDATE = 6
     TASK_LOGON_NONE = 0
