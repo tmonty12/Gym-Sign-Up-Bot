@@ -6,5 +6,11 @@ to reserve spots when I want. The bot uses a command line interface to receive p
 You can read more about the details of my bot on this [blog post](https://tmonty.tech/create-an-automated-web-bot-with-selenium-in-python) I wrote.
 
 ## Instructions
+To use this bot you must first have a Windows OS - I cover other scheduling alternatives in my post.
 
+Create a folder, clone my repository to it and run:
+pip install -r requirements.txt
+
+Then you call the script and pass in your arguments:
+python scheduler.py --u username --pw password --flr location --d date --t time
 
